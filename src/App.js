@@ -12,16 +12,19 @@ const App = () => {
     jobDesc: ''
   })
 
+  //   function update(text){
+  //     changeState({
+  //         text1: "x",
+  //         jobDesc: "y"
+  //     })
+  // }
+
   const obj = {prop: objectInput, setProp: changeState}
 
   return (
     <div className="App">
       <Routes>
-<<<<<<< HEAD
-        <Route path="/" element={<Page1 prop={obj}/>} />
-=======
-        <Route path="/" element={<Home />} />
->>>>>>> f3ecf537dbec344aab6f777fe62885b7520cbaa6
+        <Route path="/" element={<Home prop={obj}/>} />
         <Route path="page1" element={<Page1 prop={obj}/>} />
         <Route path="page2" element={<Page2 prop={obj}/>} />
       </Routes>
