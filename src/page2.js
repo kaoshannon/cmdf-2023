@@ -5,8 +5,10 @@ import { TextField, Button, ThemeProvider} from '@mui/material';
 import { Link } from 'react-router-dom';
 import theme from './theme';
 
-function Page2() {
+function Page2(object) {
 
+    console.log(object)
+    console.log(object.prop)
     const [questions, setQuestions] = useState('')
     
     const hitAPI = () => {

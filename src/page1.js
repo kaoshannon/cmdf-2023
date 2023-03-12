@@ -6,19 +6,24 @@ import theme from './theme';
 
 const Page1 = (objectYAY) => {
 
-  const [resumeInput, setResumeInput] = useState('');
-  const [jobDescripInput, setJobDescripInput] = useState('');
+  const [resumeInput, setResumeInput] = useState(objectYAY.prop.prop.text);
+  const [jobDescripInput, setJobDescripInput] = useState(objectYAY.prop.prop.jobDesc);
 
   // rename the states 
   // figure out text val into text and jd into job descrip -> within YAY, text =resuminput which i wrote for another usestate
   // where event is from 
 
     const update = () => {
+        // objectYAY.prop.setProp({
+        //     text: resumeInput,
+        //     jobDesc: jobDescripInput
+        // })
         objectYAY.prop.setProp({
             text: resumeInput,
             jobDesc: jobDescripInput
         })
         console.log("successfully handled changes")
+        // redirect here or something 
     }
 
     const handleResumeInputChange = (event) => {
@@ -53,12 +58,11 @@ const Page1 = (objectYAY) => {
                         <TextField id="job-basic" label="Job Description" value={jobDescripInput} onChange={handleJobDescripInputChange} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
                     </div>
                     <div>
-                        {console.log(objectYAY.prop)}
-                    {/* <Button onClick={update} variant="contained" color="secondary" link="">Next</Button> */}
+                        {/* <Button onClick={update} variant="contained" color="secondary" link="">Next</Button> */}
                     </div>
                     <Link to="/page2">
                     <ThemeProvider theme={theme}>
-                      <Button onClick={update} variant="contained" color="secondary" link="">Next</Button>
+                      <Button onClick={update} variant="contained" color="secondary">Next</Button>
                       </ThemeProvider>
                     </Link>
                 </div>
