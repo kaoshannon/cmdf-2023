@@ -9,8 +9,9 @@ import { useState } from 'react';
 const App = () => {
 
   const [objectInput, changeState] = useState({
-    text: '',
-    jobDesc: ''
+    resume: '',
+    jobDesc: '',
+    addtlInfo: ''
   })
 
   //   function update(text){

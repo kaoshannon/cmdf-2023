@@ -84,15 +84,16 @@ function Page3(object) {
           </div> 
 
           <div className="row">
-            <Link to="/page1">
+            <Link to="/page2">
               <ThemeProvider theme={theme}>
-                  <Button onClick={questions} variant="contained" color="secondary" style={{marginRight:20}}>Back</Button>
+                  <Button onClick={questions} variant="contained" color="secondary" style={{marginRight:20}}>Add more info</Button>
                 </ThemeProvider>
             </Link>
-            <ThemeProvider theme={theme}>
-              <Button onClick={hitAPI} variant="contained" color="secondary">Generate!</Button>
-            </ThemeProvider>
-            
+            <Link to="/page1">
+              <ThemeProvider theme={theme}>
+                <Button onClick={hitAPI} variant="contained" color="secondary">Restart</Button>
+              </ThemeProvider>
+            </Link>
           </div>
         </div>
       </div>
