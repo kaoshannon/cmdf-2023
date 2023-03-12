@@ -88,7 +88,7 @@ function Page2(object) {
           <div className="row">
             <Link to="/page1">
               <ThemeProvider theme={theme}>
-                  <Button onClick={questions} variant="contained" color="secondary">Back</Button>
+                  <Button onClick={questions} variant="contained" color="secondary" style={{marginRight:20}}>Back</Button>
                 </ThemeProvider>
             </Link>
             <ThemeProvider theme={theme}>
