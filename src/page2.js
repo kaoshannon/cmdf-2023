@@ -10,7 +10,7 @@ function Page2(object) {
     console.log(object)
     console.log(object.prop)
     const [questions, setQuestions] = useState('')
-    
+    const apiKey = process.env.API_KEY;
     const hitAPI = () => {
         const options = {
             method: 'POST',
@@ -18,7 +18,7 @@ function Page2(object) {
             headers: {
                 accept: 'application/json',
                 'content-type': 'application/json',
-                authorization: 'Bearer oeSQtij6wRDr91pa34NznONl3zjShiQo1EUVTjcQ'
+                authorization: apiKey
             },
             data: {
                 model: 'command-xlarge-nightly',
@@ -65,20 +65,20 @@ function Page2(object) {
             <h3>
             We’re only as smart as the information you give us. 
             </h3>
-
-            <h3>
-            {questions}
-            </h3>
           </div>
 
         <div className="row">
             <h3>
-              Provide additional information about your roles.</h3>
+              Please answer these three questions based on the job description so we can further personalize your cover letter
+              </h3>
             </div>
 
         <div className="row">
           {/* DROP DOWN */}
           <h3>Smart Question Generator 👇</h3>
+          <h5>
+            {questions}
+            </h5>
           </div>
         
           <div className="row">
