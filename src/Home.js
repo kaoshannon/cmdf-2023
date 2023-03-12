@@ -36,8 +36,15 @@ const home = () => {
       <main-home>
         <div className="row">
           <h1 className="inside-box">
-            Job Hunting <br></br> Made Easy <br></br> in 2 Steps <br></br>
-            {/* <img src="/icon.jpg" alt="Icon" /> */}
+            <div className="row" style={{ justifyContent: "left" }}>
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/000/227/854/small/female-developer-vector.jpg"
+                alt="Icon"
+                style={{ marginRight: 40 }}
+              />
+              Job Hunting <br></br> Made Easy <br></br> in 2 Steps <br></br>
+            </div>
+
             <h6>
               Make a perfect cover letter in a matter of minutes. Spend your
               money, time, and energy on what matters.{" "}
