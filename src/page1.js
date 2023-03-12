@@ -18,7 +18,6 @@ const Page1 = (objectYAY) => {
             text: resumeInput,
             jobDesc: jobDescripInput
         })
-        console.log(objectYAY.prop) 
         console.log("successfully handled changes")
     }
 
@@ -52,6 +51,10 @@ const Page1 = (objectYAY) => {
                     <div className="row">
                         <TextField id="resume-basic" label="Resume" value={resumeInput} onChange={handleResumeInputChange} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20, marginRight: 20 }} />
                         <TextField id="job-basic" label="Job Description" value={jobDescripInput} onChange={handleJobDescripInputChange} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
+                    </div>
+                    <div>
+                        {console.log(objectYAY.prop)}
+                    {/* <Button onClick={update} variant="contained" color="secondary" link="">Next</Button> */}
                     </div>
                     <Link to="/page2">
                     <ThemeProvider theme={theme}>
