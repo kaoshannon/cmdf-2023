@@ -1,7 +1,8 @@
 import "./App.css";
 import { React } from "react";
-import { Button, Divider } from "@mui/material";
+import { Button, Divider, ThemeProvider } from "@mui/material";
 import { Link } from "react-router-dom";
+import theme from "./theme";
 
 const home = () => {
   return (
@@ -10,17 +11,25 @@ const home = () => {
         <h2 className="dhm" style={{ textAlign: "right", paddingLeft: "40px" }}>
           Dear Hiring Manager ...
         </h2>
-
+        <div className="main" />
         <div className="buttons">
-          <Button
-            variant="outlined"
-            style={{ marginLeft: 800, marginRight: 20, borderRadius: 35 }}
-          >
-            About Us
-          </Button>
-          <Button variant="outlined" style={{ borderRadius: 35 }}>
-            Cohere.Api
-          </Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="outlined"
+              style={{ marginRight: 20, borderRadius: 35 }}
+              color="secondary"
+            >
+              About Us
+            </Button>
+
+            <Button
+              variant="outlined"
+              style={{ borderRadius: 35 }}
+              color="secondary"
+            >
+              Cohere.Api
+            </Button>
+          </ThemeProvider>
         </div>
       </div>
 
@@ -28,7 +37,7 @@ const home = () => {
         <div className="row">
           <h1 className="inside-box">
             Job Hunting <br></br> Made Easy <br></br> in 2 Steps <br></br>
-            <img src="/icon.jpeg" alt="Icon"></img>
+            {/* <img src="/icon.jpg" alt="Icon" /> */}
             <h6>
               Make a perfect cover letter in a matter of minutes. Spend your
               money, time, and energy on what matters.{" "}
@@ -51,7 +60,7 @@ const home = () => {
       <h1>Key Benefits</h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ margin: "10px" }}>
-          <img src="icon.jpeg" alt="Image 1" />
+          {/* <img src="icon.jpeg" alt="Image 1" /> */}
           <h3>Save Time & Money</h3>
           <p>
             Generates a data-driven cover letter with a digital career expert
