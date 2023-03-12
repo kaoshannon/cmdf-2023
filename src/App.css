@@ -14,14 +14,50 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 75%;
+  flex: 10%;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.sidebar {
+  background: linear-gradient(8.68deg, #ee9ae5 -25.58%, #7367f0 94.72%);
+  box-shadow: 10px 10px 20px rgba(153, 153, 153, 0.38);
+  min-height: 100vh;
+  display: flex;
+  width: 25%;
+  padding: 5%;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
   color: white;
+  flex: 20%;
+  text-align: left;
+  align-items: left;
+  justify-content: left;
 }
 
 .App-link {
