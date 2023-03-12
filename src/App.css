@@ -24,6 +24,20 @@
   color: black;
 }
 
+.main-home {
+  width: 75%;
+  flex: 10%;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding-left: 14px;
+  padding-right: 14px;
+
+  display: flex;
+  height: 100vh;
+}
+
 .header h1 {
   font-size: 100px;
   color: #100;
