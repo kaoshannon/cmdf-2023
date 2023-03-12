@@ -31,6 +31,7 @@ function Page3(object) {
         <u>
           <h3>🚀 View results</h3>
         </u>
+        <h3>❓ Who am I?</h3>
       </div>
 
       <div className="main">

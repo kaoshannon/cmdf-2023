@@ -148,6 +148,7 @@ function Page2(object) {
           <h3>👉 Add info</h3>
         </u>
         <h3>🚀 View results</h3>
+        <h3>❓ Who am I?</h3>
       </div>
 
       <div className="main">
