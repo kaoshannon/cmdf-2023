@@ -4,8 +4,10 @@ import { React, useState } from "react";
 import { TextField, Button, ThemeProvider } from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 import theme from "./theme";
+import {useNavigate} from 'react-router-dom';
 
 function Page2(object) {
+  const navigate = useNavigate();
   const [addtlInfoInput, setaddtlInfoInput] = useState(
     object.prop.prop.addtlInfo
   );
@@ -83,25 +85,32 @@ function Page2(object) {
         },
       };
 
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data);
-          console.log(response.data.generations[0].text);
-          setCoverLetterOutput(response.data.generations[0].text);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      const response = await axios.request(options)
+      // setCoverLetterOutput(response.data.generations[0].text)
+
+      // axios
+      //   .request(options)
+      //   .then(function (response) {
+      //     console.log(response.data);
+      //     console.log(response.data.generations[0].text);
+      //     setCoverLetterOutput(response.data.generations[0].text);
+      //   })
+      //   .catch(function (error) {
+      //     console.error(error);
+      //   });
 
       object.prop.setProp({
         resume: object.prop.prop.resume,
         jobDesc: object.prop.prop.jobDesc,
         addtlInfo: object.prop.prop.addtlInfo,
-        coverLetter: coverLetterOutput,
+        coverLetter: response.data.generations[0].text,
       });
       console.log("set coverLetter text in object to pass to page 3");
-      <Navigate to="/page3" />;
+      console.log(object.prop);
+      setTimeout(()=> {
+        navigate("/page3")
+      },150)
+      // <Navigate to="/page3" />;
     } catch (error) {
       console.error(error);
     }
