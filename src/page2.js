@@ -218,6 +218,7 @@ function Page2(object) {
               </Button>
             </ThemeProvider>
           </Link>
+          {/* <Link to="/page3"> */}
           <ThemeProvider theme={theme}>
             <Button
               onClick={generateCoverLetter}
@@ -227,6 +228,7 @@ function Page2(object) {
               Generate!
             </Button>
           </ThemeProvider>
+          {/* </Link> */}
         </div>
       </div>
     </div>

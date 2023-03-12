@@ -27,9 +27,50 @@
 .header h1 {
   font-size: 100px;
   color: #100;
-  line-height: 80px;
+  line-height: 100px;
   justify-content: center;
 }
+
+.header h1 img {
+  align-items: right;
+}
+
+.dhm {
+  text-align: left;
+  padding-left: 10%;
+  color: #6e7fa9;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  margin: auto;
+}
+.inside-box {
+  left: 40%;
+  width: 50%;
+  height: 50%;
+  padding: 10%;
+  align-content: left;
+  box-shadow: 1px 10px 10px #6e7fa9;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.inside-box h6 {
+  font-weight: normal;
+  text-align: left;
+}
+
 .row {
   width: 100%;
   display: flex;
@@ -37,6 +78,12 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.box-text {
+  width: 80%;
+  height: 80%;
+  padding: 20%;
 }
 
 .main {
