@@ -1,13 +1,13 @@
 import './App.css';
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import { TextField, Button , ThemeProvider} from '@mui/material';
 import { Link } from 'react-router-dom';
 import theme from './theme';
 
-const page1 = (objectYAY) => {
+const Page1 = (objectYAY) => {
 
   const [resumeInput, setResumeInput] = useState('');
-  const [jobDescripLetterInput, setJobDescripInput] = useState('');
+  const [jobDescripInput, setJobDescripInput] = useState('');
 
     const update = () => {
         objectYAY.prop.setProp({
@@ -48,7 +48,7 @@ const page1 = (objectYAY) => {
                     </h1>
                     <div className="row">
                         <TextField id="resume-basic" label="Resume" value={resumeInput} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20, marginRight: 20 }} />
-                        <TextField id="job-basic" label="Job Description" value={jobdescr} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
+                        <TextField id="job-basic" label="Job Description" value={jobDescripInput} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
                     </div>
                     <Link to="/page2">
                     <ThemeProvider theme={theme}>
@@ -61,4 +61,4 @@ const page1 = (objectYAY) => {
   );
 }
 
-export default page1;
+export default Page1;
