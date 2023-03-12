@@ -1,10 +1,12 @@
 import "./App.css";
 import axios from "axios";
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { TextField, Button, ThemeProvider } from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 import theme from "./theme";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 function Page2(object) {
   const navigate = useNavigate();
@@ -107,14 +109,15 @@ function Page2(object) {
       });
       console.log("set coverLetter text in object to pass to page 3");
       console.log(object.prop);
-      setTimeout(()=> {
+      setTimeout(() => {
         navigate("/page3")
-      },150)
+      }, 150)
       // <Navigate to="/page3" />;
     } catch (error) {
       console.error(error);
     }
   };
+
 
   // const handleCoverLetter = (event) => {
   //   setCoverLetterOutput(event.target.value);
@@ -145,19 +148,31 @@ function Page2(object) {
           </h4>
         </div>
 
-        <div className="row">
-          <h3>
-            {/* Please answer these questions based on the job description, or add any extra information so we can further personalize your cover letter  */}
-          </h3>
-        </div>
+        <Stack spacing={3} alignItems="center">
+          <div className="row">
+            <Button onClick={generateQs} variant="contained" color="secondary">
+              Smart Question Generator 👇
+            </Button>
+          </div>
 
-        <div className="row">
-          <Button onClick={generateQs} variant="contained" color="secondary">
-            Smart Question Generator 👇
-          </Button>
-        </div>
-
-        <h5>{questions}</h5>
+          <Box
+            sx={{
+              width: 600,
+              p: 1,
+              bgcolor: (theme) =>
+                theme.palette.mode === 'dark' ? '#101010' : 'grey.50',
+              color: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
+              border: '1px solid',
+              borderColor: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+              borderRadius: 2,
+              fontSize: '0.875rem',
+              fontWeight: '700',
+            }}
+          >
+            {questions}
+          </Box>
 
         <div className="row">
           <TextField
@@ -167,10 +182,13 @@ function Page2(object) {
             onChange={handleAddtlInfo}
             variant="outlined"
             multiline
-            rows={20}
+            rows={10}
             style={{ width: 400, marginBottom: 20, marginRight: 20 }}
           />
         </div>
+
+        </Stack>
+
 
         <div className="row">
           <Link to="/page1">
@@ -197,8 +215,8 @@ function Page2(object) {
           </ThemeProvider>
           {/* </Link> */}
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
