@@ -4,9 +4,9 @@ import { React, useEffect, useState } from "react";
 import { TextField, Button, ThemeProvider } from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 import theme from "./theme";
-import { useNavigate } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 
 function Page2(object) {
   const navigate = useNavigate();
@@ -22,8 +22,13 @@ function Page2(object) {
   const [questions, setQuestions] = useState("");
   const apiKey = process.env.API_KEY;
   const generateQs = () => {
-    const prompt_questions = 'Based on this resume:' + object.prop.prop.resume + '\n And based on this job description:' + object.prop.prop.resume + '\n Generate 5 smart questions to get to know me better in my cover letter--'
-    console.log(prompt_questions)
+    const prompt_questions =
+      "Based on this resume:" +
+      object.prop.prop.resume +
+      "\n And based on this job description:" +
+      object.prop.prop.resume +
+      "\n Generate 5 smart questions to get to know me better in my cover letter--";
+    console.log(prompt_questions);
     const options = {
       method: "POST",
       url: "https://api.cohere.ai/v1/generate",
@@ -39,8 +44,7 @@ function Page2(object) {
         truncate: "END",
         temperature: 0.3,
         p: 0.75,
-        prompt:
-          prompt_questions,
+        prompt: prompt_questions,
         // prompt: 'Based on this\nGenerate five guiding questions about my past experience for me to answer in my cover letter that aligns with what the job description is looking for--'
       },
     };
@@ -68,8 +72,15 @@ function Page2(object) {
       // const response = await fetch('https://example.com/data');
       // const data = await response.json();
       // console.log(data);
-      const prompt_generate = 'Based on this resume:' + object.prop.prop.resume + '\n And based on this job description:' + object.prop.prop.resume + '\n and these important information:' + addtlInfoInput + '\n Use all this information to generate a cover letter for my job application--'
-      console.log(prompt_generate)
+      const prompt_generate =
+        "Based on this resume:" +
+        object.prop.prop.resume +
+        "\n And based on this job description:" +
+        object.prop.prop.resume +
+        "\n and these important information:" +
+        addtlInfoInput +
+        "\n Use all this information to generate a cover letter for my job application--";
+      console.log(prompt_generate);
       const options = {
         method: "POST",
         url: "https://api.cohere.ai/v1/generate",
@@ -90,7 +101,7 @@ function Page2(object) {
         },
       };
 
-      const response = await axios.request(options)
+      const response = await axios.request(options);
       // setCoverLetterOutput(response.data.generations[0].text)
 
       // axios
@@ -113,14 +124,13 @@ function Page2(object) {
       console.log("set coverLetter text in object to pass to page 3");
       console.log(object.prop);
       setTimeout(() => {
-        navigate("/page3")
-      }, 150)
+        navigate("/page3");
+      }, 150);
       // <Navigate to="/page3" />;
     } catch (error) {
       console.error(error);
     }
   };
-
 
   // const handleCoverLetter = (event) => {
   //   setCoverLetterOutput(event.target.value);
@@ -134,7 +144,9 @@ function Page2(object) {
         <h2>Dear Hiring Manager...</h2>
         <h3>💎 Dashboard</h3>
         <h3>🔥 Copy & Paste</h3>
-        <h3>👉 Add info</h3>
+        <u>
+          <h3>👉 Add info</h3>
+        </u>
         <h3>🚀 View results</h3>
       </div>
 
@@ -163,35 +175,35 @@ function Page2(object) {
               width: 600,
               p: 1,
               bgcolor: (theme) =>
-                theme.palette.mode === 'dark' ? '#101010' : 'grey.50',
+                theme.palette.mode === "dark" ? "#101010" : "grey.50",
               color: (theme) =>
-                theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
-              border: '1px solid',
+                theme.palette.mode === "dark" ? "grey.300" : "grey.800",
+              border: "1px solid",
               borderColor: (theme) =>
-                theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+                theme.palette.mode === "dark" ? "grey.800" : "grey.300",
               borderRadius: 2,
-              fontSize: '0.875rem',
-              fontWeight: '700',
+              fontSize: "0.875rem",
+              fontWeight: "600",
+              paddingLeft: "80px",
+              paddingBottom: "30px",
             }}
           >
-            {questions}
+            <pre>{questions}</pre>
           </Box>
 
-        <div className="row">
-          <TextField
-            id="addtl-info-basic"
-            label="What else do you want us to know?"
-            value={addtlInfoInput}
-            onChange={handleAddtlInfo}
-            variant="outlined"
-            multiline
-            rows={10}
-            style={{ width: 400, marginBottom: 20, marginRight: 20 }}
-          />
-        </div>
-
+          <div className="row">
+            <TextField
+              id="addtl-info-basic"
+              label="What else do you want us to know?"
+              value={addtlInfoInput}
+              onChange={handleAddtlInfo}
+              variant="outlined"
+              multiline
+              rows={10}
+              style={{ width: 400, marginBottom: 20, marginRight: 20 }}
+            />
+          </div>
         </Stack>
-
 
         <div className="row">
           <Link to="/page1">
@@ -206,7 +218,6 @@ function Page2(object) {
               </Button>
             </ThemeProvider>
           </Link>
-          {/* <Link to="/page3"> */}
           <ThemeProvider theme={theme}>
             <Button
               onClick={generateCoverLetter}
@@ -216,10 +227,9 @@ function Page2(object) {
               Generate!
             </Button>
           </ThemeProvider>
-          {/* </Link> */}
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
 

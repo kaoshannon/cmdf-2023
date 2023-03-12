@@ -42,7 +42,9 @@ const Page1 = (objectYAY) => {
       <div className="sidebar">
         <h2>Dear Hiring Manager...</h2>
         <h3>💎 Dashboard</h3>
-        <h3>🔥 Copy & Paste</h3>
+        <u>
+          <h3>🔥 Copy & Paste</h3>
+        </u>
         <h3>👉 Add info</h3>
         <h3>🚀 View results</h3>
       </div>
