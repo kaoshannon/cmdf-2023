@@ -2,19 +2,22 @@ import "./App.css";
 import axios from "axios";
 import { React, useState } from "react";
 import { TextField, Button, ThemeProvider } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import theme from "./theme";
 
 function Page2(object) {
   const [addtlInfoInput, setaddtlInfoInput] = useState(
     object.prop.prop.addtlInfo
   );
+  const [coverLetterOutput, setCoverLetterOutput] = useState(
+    object.prop.prop.coverLetter
+  );
 
   console.log(object);
   console.log(object.prop);
   const [questions, setQuestions] = useState("");
   const apiKey = process.env.API_KEY;
-  const hitAPI = () => {
+  const generateQs = () => {
     const options = {
       method: "POST",
       url: "https://api.cohere.ai/v1/generate",
@@ -53,21 +56,62 @@ function Page2(object) {
     console.log("handling addtl info input");
   };
 
-  const generateCoverLetter = () => {
-    object.prop.setProp({
-      resume: object.prop.prop.resume,
-      jobDesc: object.prop.prop.jobDesc,
-      // newly added
-      addtlInfo: addtlInfoInput,
-    });
-    console.log(
-      "successfully handled changes - resume and jd from page 1, and addtl info from page 2"
-    );
+  const generateCoverLetter = async (event) => {
+    console.log("handling cover letter output generation");
+    try {
+      // const response = await fetch('https://example.com/data');
+      // const data = await response.json();
+      // console.log(data);
+
+      const options = {
+        method: "POST",
+        url: "https://api.cohere.ai/v1/generate",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          authorization: "Bearer oeSQtij6wRDr91pa34NznONl3zjShiQo1EUVTjcQ",
+        },
+        data: {
+          model: "command-xlarge-nightly",
+          max_tokens: 120,
+          return_likelihoods: "GENERATION",
+          truncate: "END",
+          temperature: 0.3,
+          p: 0.75,
+          prompt: "generate a cover letter",
+          // prompt: 'Based on this\nGenerate five guiding questions about my past experience for me to answer in my cover letter that aligns with what the job description is looking for--'
+        },
+      };
+
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+          console.log(response.data.generations[0].text);
+          setCoverLetterOutput(response.data.generations[0].text);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+
+      object.prop.setProp({
+        resume: object.prop.prop.resume,
+        jobDesc: object.prop.prop.jobDesc,
+        addtlInfo: object.prop.prop.addtlInfo,
+        coverLetter: coverLetterOutput,
+      });
+      console.log("set coverLetter text in object to pass to page 3");
+      <Navigate to="/page3" />;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  // function format(string) {
-
-  // }
+  // const handleCoverLetter = (event) => {
+  //   setCoverLetterOutput(event.target.value);
+  //   console.log("handling cover letter output");
+  //   generateCoverLetter();
+  // };
 
   return (
     <div className="row">
@@ -99,12 +143,11 @@ function Page2(object) {
         </div>
 
         <div className="row">
-          {/* DROP DOWN */}
-
-          <Button onClick={hitAPI} variant="contained" color="secondary">
+          <Button onClick={generateQs} variant="contained" color="secondary">
             Smart Question Generator 👇
           </Button>
         </div>
+
         <h5>{questions}</h5>
 
         <div className="row">
@@ -133,17 +176,17 @@ function Page2(object) {
               </Button>
             </ThemeProvider>
           </Link>
-          <Link to="/page3">
-            <ThemeProvider theme={theme}>
-              <Button
-                onClick={generateCoverLetter}
-                variant="contained"
-                color="secondary"
-              >
-                Generate!
-              </Button>
-            </ThemeProvider>
-          </Link>
+          {/* <Link to="/page3"> */}
+          <ThemeProvider theme={theme}>
+            <Button
+              onClick={generateCoverLetter}
+              variant="contained"
+              color="secondary"
+            >
+              Generate!
+            </Button>
+          </ThemeProvider>
+          {/* </Link> */}
         </div>
       </div>
     </div>
