@@ -1,4 +1,6 @@
 import './App.css';
+import React from 'react';
+import { TextField } from '@mui/material';
 
 function page1() {
   return (
@@ -12,12 +14,18 @@ function page1() {
       </div>
 
       <div className="main">
-        <div className="row">
-          <h1>
-          Step 1. Copy & Paste
-          </h1>
-        </div>
+      <div className="row">
+        <h1>
+        Step 1. Copy & Paste
+        </h1>
+        <TextField id="resume-basic" label="Resume" variant="outlined" style={{width:400}}/>
+        {/* <filler>
+          This is a filler.
+        </filler> */}
+        <TextField id="job-basic" label="Job Description" variant="outlined" style={{width:400}}/>
+        {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
       </div>
+    </div>
     </div>
   );
 }
