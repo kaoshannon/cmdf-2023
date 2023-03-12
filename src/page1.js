@@ -12,11 +12,11 @@ function page1() {
       </div>
 
       <div className="main">
-        <h1>
-        Step 1. Copy & Paste
-        </h1>
-
-        {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
+        <div className="row">
+          <h1>
+          Step 1. Copy & Paste
+          </h1>
+        </div>
       </div>
     </div>
   );
