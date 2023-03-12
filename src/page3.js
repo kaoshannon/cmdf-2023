@@ -71,14 +71,13 @@ function Page3(object) {
 
       <div className="main">
         <div className="row">
-          <h1>Your custom cover letter</h1>
+          <h1>Your custom cover letter 💫</h1>
         </div>
-        <h5>{object.prop.prop.coverLetter}</h5>;
         <div className="row">
           <TextField
             inputRef={inputRef}
             id="final-cover-letter"
-            label={object.prop.prop.coverLetter}
+            value={object.prop.prop.coverLetter}
             variant="outlined"
             multiline
             rows={20}

@@ -66,7 +66,8 @@ function Page2(object) {
       // const response = await fetch('https://example.com/data');
       // const data = await response.json();
       // console.log(data);
-
+      const prompt_generate = 'Based on this resume:' + object.prop.prop.resume + '\n And based on this job description:' + object.prop.prop.resume + '\n and these important information:' + addtlInfoInput + '\n Use all this information to generate a cover letter for my job application--'
+      console.log(prompt_generate)
       const options = {
         method: "POST",
         url: "https://api.cohere.ai/v1/generate",
@@ -77,12 +78,12 @@ function Page2(object) {
         },
         data: {
           model: "command-xlarge-nightly",
-          max_tokens: 120,
+          max_tokens: 320,
           return_likelihoods: "GENERATION",
           truncate: "END",
-          temperature: 0.3,
+          temperature: 0.7,
           p: 0.75,
-          prompt: "generate a cover letter",
+          prompt: prompt_generate,
           // prompt: 'Based on this\nGenerate five guiding questions about my past experience for me to answer in my cover letter that aligns with what the job description is looking for--'
         },
       };
@@ -104,7 +105,7 @@ function Page2(object) {
       object.prop.setProp({
         resume: object.prop.prop.resume,
         jobDesc: object.prop.prop.jobDesc,
-        addtlInfo: object.prop.prop.addtlInfo,
+        addtlInfo: addtlInfoInput,
         coverLetter: response.data.generations[0].text,
       });
       console.log("set coverLetter text in object to pass to page 3");
