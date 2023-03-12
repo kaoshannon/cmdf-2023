@@ -9,14 +9,16 @@ const Page1 = (objectYAY) => {
   const [resumeInput, setResumeInput] = useState('');
   const [jobDescripInput, setJobDescripInput] = useState('');
 
+  // rename the states 
+  // figure out text val into text and jd into job descrip -> within YAY, text =resuminput which i wrote for another usestate
+  // where event is from 
+
     const update = () => {
         objectYAY.prop.setProp({
-            text: "I want to be a software developer in the future.",
-            jobDesc: "Work 28 hours a week with children."
+            text: resumeInput,
+            jobDesc: jobDescripInput
         })
-
-        handleResumeInputChange()
-        handleJobDescripInputChange()
+        console.log(objectYAY.prop) 
         console.log("successfully handled changes")
     }
 
@@ -46,9 +48,10 @@ const Page1 = (objectYAY) => {
                     <h1>
                         Step 1. Copy & Paste
                     </h1>
+                    {/* <h1>{resumeInput}</h1> */}
                     <div className="row">
-                        <TextField id="resume-basic" label="Resume" value={resumeInput} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20, marginRight: 20 }} />
-                        <TextField id="job-basic" label="Job Description" value={jobDescripInput} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
+                        <TextField id="resume-basic" label="Resume" value={resumeInput} onChange={handleResumeInputChange} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20, marginRight: 20 }} />
+                        <TextField id="job-basic" label="Job Description" value={jobDescripInput} onChange={handleJobDescripInputChange} variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20 }} />
                     </div>
                     <Link to="/page2">
                     <ThemeProvider theme={theme}>
