@@ -1,6 +1,9 @@
 import './App.css';
 import axios from 'axios';
-import { useState } from 'react';
+import { React, useState } from 'react';
+import { TextField, Button, ThemeProvider} from '@mui/material';
+import { Link } from 'react-router-dom';
+import theme from './theme';
 
 function Page2() {
 
@@ -39,17 +42,55 @@ function Page2() {
 
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h2> Start generating questions from your resume and cover letter.</h2>
-                <button onClick={hitAPI}> Generate now</button>
-                <p> {questions} </p>
-                <p>
-                    this is page 2
-                </p>
-                {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-            </header>
+      <div className="row">
+        <div className="sidebar">
+                <h2>Dear Hiring Manager...</h2>
+                <h3>💎 Dashboard</h3>
+                <h3>🔥 Copy & Paste</h3>
+                <h3>👉 Add info</h3>
+                <h3>🚀 View results</h3>
+            </div>
+      
+      <div className="main">
+        <div className="row">
+            <h1>
+              Step 2. Add Info
+            </h1>
+          </div>
+            
+        <div className="row">
+            <h3>
+            We’re only as smart as the information you give us. 
+            </h3>
+          </div>
+
+        <div className="row">
+            <h3>
+              Provide additional information about your roles.</h3>
+            </div>
+
+        <div className="row">
+          {/* DROP DOWN */}
+          <h3>Smart Question Generator 👇</h3>
+          </div>
+        
+          <div className="row">
+            <TextField id="addtl-info-basic" label="What else do you want us to know?" variant="outlined" multiline rows={20} style={{ width: 400, marginBottom: 20, marginRight: 20 }} />       
+          </div> 
+
+          <div className="row">
+            <Link to="/page1">
+              <ThemeProvider theme={theme}>
+                  <Button onClick={questions} variant="contained" color="secondary">Back</Button>
+                </ThemeProvider>
+            </Link>
+            <ThemeProvider theme={theme}>
+              <Button onClick={questions} variant="contained" color="secondary">Generate!</Button>
+            </ThemeProvider>
+            
+          </div>
         </div>
+      </div>
     );
 }
 
