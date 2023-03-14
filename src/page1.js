@@ -40,14 +40,22 @@ const Page1 = (objectYAY) => {
   return (
     <div className="row">
       <div className="sidebar">
-        <h2>Dear Hiring Manager...</h2>
+        <a href="/">
+          <h2>Dear Hiring Manager...</h2>
+        </a>
         <h3>💎 Dashboard</h3>
-        <u>
+        <a href="/page1">
           <h3>🔥 Copy & Paste</h3>
-        </u>
-        <h3>👉 Add info</h3>
-        <h3>🚀 View results</h3>
-        <h3>❓ Who am I?</h3>
+        </a>
+        <a href="/page2">
+          <h3>👉 Add info</h3>
+        </a>
+        <a href="/page3">
+          <h3>🚀 View results</h3>
+        </a>
+        <a href="/page4">
+          <h3>❓ Who am I?</h3>
+        </a>
       </div>
 
       <div className="main">

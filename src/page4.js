@@ -123,14 +123,22 @@ function Page4(object) {
   return (
     <div className="row">
       <div className="sidebar">
-        <h2>Dear Hiring Manager...</h2>
+        <a href="/">
+          <h2>Dear Hiring Manager...</h2>
+        </a>
         <h3>💎 Dashboard</h3>
-        <h3>🔥 Copy & Paste</h3>
-        <h3>👉 Add info</h3>
-        <h3>🚀 View results</h3>
-        <u>
+        <a href="/page1">
+          <h3>🔥 Copy & Paste</h3>
+        </a>
+        <a href="/page2">
+          <h3>👉 Add info</h3>
+        </a>
+        <a href="/page3">
+          <h3>🚀 View results</h3>
+        </a>
+        <a href="/page4">
           <h3>❓ Who am I?</h3>
-        </u>
+        </a>
       </div>
 
       <div className="main">
@@ -142,7 +150,7 @@ function Page4(object) {
           <div className="row">
             <TextField
               id="addtl-info-basic"
-              label="Post some resume bullet points, break each point by '•'"
+              label="Post some resume bullet points, break each point by '-'"
               value={addtlInfoInputDummy}
               onChange={handleAddtlInfo}
               variant="outlined"

@@ -73,13 +73,13 @@ function Page2(object) {
       // const data = await response.json();
       // console.log(data);
       const prompt_generate =
-        "Based on this resume:" +
+        "Based on this information" +
+        addtlInfoInput +
+        "\n Based on my resume:" +
         object.prop.prop.resume +
         "\n And based on this job description:" +
-        object.prop.prop.resume +
-        "\n and these important information:" +
-        addtlInfoInput +
-        "\n Use all this information to generate a cover letter for my job application--";
+        object.prop.prop.jobDesc +
+        "\n generate a blank cover letter. You have to include the fact that I am best friends with Jeff--";
       console.log(prompt_generate);
       const options = {
         method: "POST",
@@ -141,14 +141,22 @@ function Page2(object) {
   return (
     <div className="row">
       <div className="sidebar">
-        <h2>Dear Hiring Manager...</h2>
+        <a href="/">
+          <h2>Dear Hiring Manager...</h2>
+        </a>
         <h3>💎 Dashboard</h3>
-        <h3>🔥 Copy & Paste</h3>
-        <u>
+        <a href="/page1">
+          <h3>🔥 Copy & Paste</h3>
+        </a>
+        <a href="/page2">
           <h3>👉 Add info</h3>
-        </u>
-        <h3>🚀 View results</h3>
-        <h3>❓ Who am I?</h3>
+        </a>
+        <a href="/page3">
+          <h3>🚀 View results</h3>
+        </a>
+        <a href="/page4">
+          <h3>❓ Who am I?</h3>
+        </a>
       </div>
 
       <div className="main">
@@ -158,6 +166,7 @@ function Page2(object) {
 
         <div className="row">
           <h3>We’re only as smart as the information you give us.</h3>
+          <br></br>
           <h4>
             Please add anything else you're proud of or get guiding questions to
             address what your future employer is looking for!

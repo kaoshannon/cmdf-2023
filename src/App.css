@@ -130,6 +130,43 @@
   color: #61dafb;
 }
 
+.a {
+  color: none;
+  text-decoration: none;
+}
+
+.sidebar h2 {
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.sidebar h3 {
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.sidebar a:link {
+  text-decoration: none;
+  color: none;
+}
+
+.sidebar a:visited {
+  text-decoration: none;
+  color: none;
+}
+
+.sidebar a:hover {
+  text-decoration: none;
+  color: none;
+}
+
+.sidebar a:active {
+  text-decoration: none;
+  color: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
