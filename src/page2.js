@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { TextField, Button, ThemeProvider } from "@mui/material";
 import { Link, Navigate } from "react-router-dom";
 import theme from "./theme";
@@ -26,7 +26,7 @@ function Page2(object) {
       "Based on this resume:" +
       object.prop.prop.resume +
       "\n And based on this job description:" +
-      object.prop.prop.resume +
+      object.prop.prop.jobDesc +
       "\n Generate 5 smart questions to get to know me better in my cover letter--";
     console.log(prompt_questions);
     const options = {
@@ -73,13 +73,13 @@ function Page2(object) {
       // const data = await response.json();
       // console.log(data);
       const prompt_generate =
-        "Based on this information" +
-        addtlInfoInput +
-        "\n Based on my resume:" +
+        "Based on this resume:" +
         object.prop.prop.resume +
         "\n And based on this job description:" +
         object.prop.prop.jobDesc +
-        "\n generate a blank cover letter. You have to include the fact that I am best friends with Jeff--";
+        "\n and these important information:" +
+        addtlInfoInput +
+        "\n Use all this information to generate a cover letter for my job application--";
       console.log(prompt_generate);
       const options = {
         method: "POST",
@@ -97,7 +97,6 @@ function Page2(object) {
           temperature: 0.7,
           p: 0.75,
           prompt: prompt_generate,
-          // prompt: 'Based on this\nGenerate five guiding questions about my past experience for me to answer in my cover letter that aligns with what the job description is looking for--'
         },
       };
 
