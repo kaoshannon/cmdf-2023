@@ -56,13 +56,6 @@ function Page3(object) {
             rows={20}
             style={{ width: 400, marginBottom: 20, marginRight: 20 }}
           />
-          <Button
-            onclick={handleCopy}
-            color="secondary"
-            style={{ marginRight: 10, marginLeft: 10 }}
-          >
-            Copy
-          </Button>
         </div>
         <div className="row">
           <Link to="/page2">
@@ -87,6 +80,13 @@ function Page3(object) {
               </Button>
             </ThemeProvider>
           </Link>
+          <Button
+            onclick={handleCopy}
+            color="secondary"
+            style={{ marginRight: 10, marginLeft: 10 }}
+          >
+            Copy
+          </Button>
         </div>
       </div>
     </div>

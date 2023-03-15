@@ -48,13 +48,14 @@ function Page2(object) {
         // prompt: 'Based on this\nGenerate five guiding questions about my past experience for me to answer in my cover letter that aligns with what the job description is looking for--'
       },
     };
-
+    console.log("just sent a POST request to generate questions");
     axios
       .request(options)
       .then(function (response) {
         console.log(response.data);
         console.log(response.data.generations[0].text);
         setQuestions(response.data.generations[0].text);
+        console.log("just set questions");
       })
       .catch(function (error) {
         console.error(error);
@@ -179,7 +180,7 @@ function Page2(object) {
             </Button>
           </div>
 
-          <Box
+          {/* <Box
             sx={{
               width: 600,
               p: 1,
@@ -197,19 +198,28 @@ function Page2(object) {
               paddingBottom: "30px",
             }}
           >
-            <pre>{questions}</pre>
-          </Box>
+            <pre >{questions}</pre>
+          </Box> */}
+
+          <TextField
+            id="final-cover-letter"
+            value={questions}
+            variant="outlined"
+            multiline
+            rows={8}
+            style={{ width: 800, marginBottom: 20, marginRight: 20 }}
+          />
 
           <div className="row">
             <TextField
               id="addtl-info-basic"
-              label="What else do you want us to know?"
+              label="Another chance to prove that you're the perfect candidate!"
               value={addtlInfoInput}
               onChange={handleAddtlInfo}
               variant="outlined"
               multiline
               rows={10}
-              style={{ width: 400, marginBottom: 20, marginRight: 20 }}
+              style={{ width: 800, marginBottom: 20, marginRight: 20 }}
             />
           </div>
         </Stack>
