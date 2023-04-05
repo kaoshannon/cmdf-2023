@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "//kaoshannon.github.io/cmdf-2023/static/css/main.b1cb40dd.css",
-    "main.js": "//kaoshannon.github.io/cmdf-2023/static/js/main.05122763.js",
-    "static/js/787.c81d73b1.chunk.js": "//kaoshannon.github.io/cmdf-2023/static/js/787.c81d73b1.chunk.js",
-    "index.html": "//kaoshannon.github.io/cmdf-2023/index.html",
-    "main.b1cb40dd.css.map": "//kaoshannon.github.io/cmdf-2023/static/css/main.b1cb40dd.css.map",
-    "main.05122763.js.map": "//kaoshannon.github.io/cmdf-2023/static/js/main.05122763.js.map",
-    "787.c81d73b1.chunk.js.map": "//kaoshannon.github.io/cmdf-2023/static/js/787.c81d73b1.chunk.js.map"
+    "main.css": "/cmdf-2023/static/css/main.b1cb40dd.css",
+    "main.js": "/cmdf-2023/static/js/main.8d725fab.js",
+    "static/js/787.c81d73b1.chunk.js": "/cmdf-2023/static/js/787.c81d73b1.chunk.js",
+    "index.html": "/cmdf-2023/index.html",
+    "main.b1cb40dd.css.map": "/cmdf-2023/static/css/main.b1cb40dd.css.map",
+    "main.8d725fab.js.map": "/cmdf-2023/static/js/main.8d725fab.js.map",
+    "787.c81d73b1.chunk.js.map": "/cmdf-2023/static/js/787.c81d73b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b1cb40dd.css",
-    "static/js/main.05122763.js"
+    "static/js/main.8d725fab.js"
   ]
 }
